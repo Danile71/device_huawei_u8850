@@ -1,0 +1,108 @@
+USE_CAMERA_STUB := true
+
+# inherit from the proprietary version
+-include vendor/huawei/u8850/BoardConfigVendor.mk
+
+TARGET_ARCH := arm
+TARGET_NO_BOOTLOADER := true
+TARGET_BOARD_PLATFORM := msm7x30
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_CPU_VARIANT := generic
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_SPECIFIC_HEADER_PATH := device/huawei/u8850/include
+
+#TARGET_BOOTLOADER_BOARD_NAME := u8850
+#TARGET_NO_KERNEL := true
+BOARD_KERNEL_CMDLINE := console=ttyMSM1 androidboot.hardware=qcom
+BOARD_KERNEL_BASE := 0x00200000
+BOARD_KERNEL_PAGESIZE := 4096
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/devices/platform/usb_mass_storage/lun%d/file"
+# fix this up by examining /proc/mtd on a running device
+BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 360046848
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 1191182336
+BOARD_FLASH_BLOCK_SIZE := 262144
+# Filesystem
+BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p7
+BOARD_SYSTEM_FILESYSTEM := ext4
+BOARD_DATA_DEVICE := /dev/block/mmcblk0p8
+BOARD_DATA_FILESYSTEM := ext4
+BOARD_CACHE_DEVICE := /dev/block/mmcblk0p11
+BOARD_CACHE_FILESYSTEM := ext4
+BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
+BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
+BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
+BOARD_HAS_NO_MISC_PARTITION := true
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_USES_QCOM_LIBS := true
+BOARD_USES_QCOM_LIBRPC := true
+BOARD_USE_QCOM_PMEM := true
+#BOARD_USES_QCOM_GPS := true
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_KERNEL_CONFIG := menuconfig
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+
+# FM Radio
+BOARD_HAVE_FM_RADIO := true
+BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+BOARD_FM_DEVICE := radio0
+
+# Audio
+BOARD_USES_GENERIC_AUDIO := false
+BOARD_USES_QCOM_AUDIO_V2 := true
+ICS_AUDIO_BLOB := true
+MR0_AUDIO_BLOB := false
+
+
+# Graphics
+TARGET_USES_ION := true
+TARGET_QCOM_DISPLAY_VARIANT := legacy
+BOARD_HAVE_OLD_ION_API := true
+# Graphics
+USE_OPENGL_RENDERER := true
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_QCOM_HDMI_OUT := false
+TARGET_USES_OVERLAY := true
+TARGET_HAVE_BYPASS := true
+TARGET_USES_SF_BYPASS := false
+TARGET_USES_GENLOCK := true
+TARGET_GRALLOC_USES_ASHMEM := true
+TARGET_FORCE_CPU_UPLOAD := true
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE -DQCOM_ROTATOR_KERNEL_FORMATS -DOLD_ION_API -DUSE_GENLOCK
+BOARD_EGL_CFG := device/huawei/u8850/egl.cfg
+BOARD_OVERLAY_FORMAT_YCbCr_420_SP := true
+BOARD_OVERLAY_MINIFICATION_LIMIT := 2
+BOARD_NO_RGBX_8888 := true
+#TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
+
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+
+
+# Connectivity - Wi-Fi
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+#BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+BOARD_HOSTAPD_DRIVER := NL80211
+#BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+BOARD_WLAN_DEVICE := dhd
+WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/dhd/parameters/firmware_path"
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd.ko"
+WIFI_DRIVER_FW_PATH_STA := "/system/etc/bcm4329/sdio-ag-cdc-full11n-reclaim-roml-wme.bin"
+WIFI_DRIVER_FW_PATH_AP := "/system/etc/bcm4329/sdio-ag-cdc-full11n-reclaim-roml-wme.bin"
+WIFI_DRIVER_MODULE_NAME := "dhd"
+WIFI_DRIVER_MODULE_ARG := "dhd_msg_level=0x00ff firmware_path=/system/etc/bcm4329/sdio-ag-cdc-full11n-reclaim-roml-wme.bin  nvram_path=/system/etc/bcm4329/nvram.txt"
+
+
+
+BOARD_HAS_QCOM_WLAN := true
+
+
+

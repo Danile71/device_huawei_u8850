@@ -1,0 +1,23 @@
+key 59    MENU                  WAKE
+key 110   MENU              WAKE
+key 464   MENU              WAKE_DROPPED
+key 29    MENU              WAKE_DROPPED
+key 56    MENU              WAKE_DROPPED
+key 151   MENU              WAKE_DROPPED
+key 139   MENU              WAKE
+
+key 60    HOME                  WAKE
+key 102   HOME                  WAKE
+key 142   HOME                  WAKE_DROPPED
+
+key 62    BACK                  WAKE_DROPPED
+key 158   BACK              WAKE_DROPPED
+
+
+key 217   SEARCH                WAKE_DROPPED
+
+
+
+# Volume keys
+key 115   VOLUME_UP         WAKE_DROPPED
+key 114   VOLUME_DOWN       WAKE_DROPPED
